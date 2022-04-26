@@ -1,4 +1,4 @@
-package day26;
+package day26_1_Class;
 
 public class day26_20220422 {
 	public static void main(String[] args) {

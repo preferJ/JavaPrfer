@@ -1,4 +1,4 @@
-package day26_2;
+package day26_2_Class;
 import java.util.Scanner;
 
 public class Calculator {
