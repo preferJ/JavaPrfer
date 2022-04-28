@@ -21,19 +21,21 @@ public class HumanRe {
 		return humanList;
 	}
 
-	void deleteOne(long f) {
-		int del = 0;
-		for (HumanDTO h : humanList) {
-			if(h.getId() == f) {
-				humanList.remove(del);
-				del++;
+	void deleteOne(long id) {
+		for (int i = 0; i < humanList.size(); i++) {
+			if(humanList.get(i).getId() == id) {
+				humanList.remove(i);
+			}
+		}
+	}
+
+	void update(long id, String cn) {
+		for (int i = 0; i < humanList.size(); i++) {
+			if(humanList.get(i).getId() == id) {
+				humanList.get(i).setName(cn);
 			}
 		}
 
-
 	}
-	
-	
 
-
-}
+}// 클래스 끝

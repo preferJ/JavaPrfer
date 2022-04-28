@@ -22,17 +22,21 @@ public class HumanSV {
 		List<HumanDTO> hl = new ArrayList<>();
 		hl = hr.findOne(f);
 		for(HumanDTO h : hl) {
-			if(h.getId() == f) {
+			if(h.getId() == f) 
 				System.out.println(h);
 			}
 		}
-	}
+	
 	
 	void deleteOne(long f) {
 		HumanRe hr = new HumanRe();
 		hr.deleteOne(f);
 	}
 	
+	void update(long id , String cn) {
+		HumanRe hr = new HumanRe();
+		hr.update(id,cn);
+	}
 	
 
 }
