@@ -59,10 +59,13 @@ public String pwInput() {
 		MemberService ms = new MemberService();
 		System.out.println("수정할 회원의 ID와 PW를 입력해주세요");
 		Long forEditID = ms.login();
+		if(forEditID == 99999L) {
+			
+		}else{
 		System.out.println("수정 할 전화번호 :");
 		String editPhoneNumber = sc.next();
 		mr.editMember(forEditID,editPhoneNumber);
-		
+		}
 	}void delMember(){
 		MemberRepositoey mr = new MemberRepositoey();
 		MemberService ms = new MemberService();

@@ -8,7 +8,7 @@ public class MemberRepositoey {
 
 	Scanner sc = new Scanner(System.in);
 	static List<MemberDTO> memberList = new ArrayList<>();
-	Long IDnumber = 1L ;
+	static Long IDnumber = 1L ;
 
 	void addMember(String id) {
 		int duplCheck = 0;
@@ -58,16 +58,19 @@ public class MemberRepositoey {
 		if (duplChek == -1) {
 
 			System.out.println("일치하는 ID가 없습니다. 초기화면으로 돌아갑니다.");
+			return 99999L;
 
 		}
 
 		else if (id.equals(memberList.get(indexNumber).memberID) && pw.equals(memberList.get(indexNumber).memberPassword)) {
 			System.out.println(memberList.get(indexNumber).memberName + "님 환영합니다.");
+			return memberList.get(indexNumber).id;
 		} else if(!pw.equals(memberList.get(indexNumber).memberPassword)){
 			System.out.println("패스워드가 일치하지 않습니다. 초기화면으로 돌아갑니다.");
-		}
+			return 99999L;
+		}else {return 99999L;}
 
-		return memberList.get(indexNumber).id;
+
 	}// 로그인
 
 	void allMember() {
@@ -78,10 +81,15 @@ public class MemberRepositoey {
 
 	void selMember(Long id) {
 		int indexNumber = id.intValue();
-		System.out.println(memberList.get(indexNumber));
-		if (memberList.get(indexNumber) == null) {
-			System.out.println("조회결과가 없습니다!!");
+		try {
+			System.out.println(memberList.get(indexNumber));
+			if (memberList.get(indexNumber) == null) {
+				System.out.println("조회결과가 없습니다!!");}
+			
+		} catch (Exception e) {
+			System.out.println("존재하지 않는 회원번호 입니다.");
 		}
+		
 	}// 선택 조회
 
 	void editMember(Long id, String editPhoneNember) {
